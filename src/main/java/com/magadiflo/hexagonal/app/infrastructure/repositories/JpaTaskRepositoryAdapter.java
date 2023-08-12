@@ -3,10 +3,12 @@ package com.magadiflo.hexagonal.app.infrastructure.repositories;
 import com.magadiflo.hexagonal.app.domain.models.Task;
 import com.magadiflo.hexagonal.app.domain.ports.out.ITaskRepositoryPort;
 import com.magadiflo.hexagonal.app.infrastructure.entities.TaskEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class JpaTaskRepositoryAdapter implements ITaskRepositoryPort {
     private final IJpaTaskRepository jpaTaskRepository;
 

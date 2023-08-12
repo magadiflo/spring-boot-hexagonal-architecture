@@ -1,10 +1,7 @@
 package com.magadiflo.hexagonal.app.infrastructure.entities;
 
 import com.magadiflo.hexagonal.app.domain.models.Task;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -17,6 +14,11 @@ public class TaskEntity {
     private String description;
     private LocalDateTime creationDate;
     private Boolean completed;
+
+    @PrePersist
+    public void prePersist() {
+        this.creationDate = LocalDateTime.now();
+    }
 
     public TaskEntity() {
     }
